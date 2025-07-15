@@ -79,11 +79,26 @@ class CategorySystemService
         ]);
     }
 
+    public function updateStatu(int $id)
+    {
+        $category = Category::find($id);
+
+        if (!$category) {
+            throw new NotFoundException('Categoria no encontrada.');
+        }
+
+        $category->active = !$category->active;
+        $category->save();
+
+        return response()->json([
+            'message' => 'Estado de la categoria actualizado correctamente',
+            'categoria' => $category,
+        ]);
+    }
+
 
     private function existsCategory(string $name): bool
     {
         return Category::where('name', $name)->exists();
     }
-
-
 }

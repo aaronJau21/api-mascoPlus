@@ -22,5 +22,6 @@ Route::prefix('product')->middleware('jwt')->group(function () {
         Route::post('/', [App\Http\Controllers\System\Product\CategoryController::class, 'createCategory']);
         Route::get('/{id}', [App\Http\Controllers\System\Product\CategoryController::class, 'getCategoryById']);
         Route::patch('/{id}', [App\Http\Controllers\System\Product\CategoryController::class, 'updateCategory']);
+        Route::patch('/status/{id}', [App\Http\Controllers\System\Product\CategoryController::class, 'updateStatus']);
     });
 });

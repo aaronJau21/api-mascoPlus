@@ -34,4 +34,9 @@ class CategoryController extends Controller
     {
         return $this->categorySystemService->updateCategory($id, $request);
     }
+
+    public function updateStatus(int $id, Request $request)
+    {
+        return $this->categorySystemService->updateStatu($id, $request);
+    }
 }
